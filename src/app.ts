@@ -29,13 +29,13 @@ class App {
         this.app.use(cors(options));
         this.app.use(morgan('dev'));
         dotenv.config({path: `${__dirname}/../.env`});
-        this.initalizeDB();
+        this.initalizeDBConnetion();
         this.app.get('/', (req: Request, res: Response) => {
             res.status(200).send('Service is up!');
         });
     }
 
-    private initalizeDB() {
+    private initalizeDBConnetion() {
         const mongoURL = `mongodb://localhost:27017/Anyvision`;
         mongoose.connect(mongoURL, {useNewUrlParser: true});
     }

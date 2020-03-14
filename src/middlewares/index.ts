@@ -1,6 +1,7 @@
 import {NextFunction, Response} from "express";
 import jwt from 'jsonwebtoken';
 
+/* Checks the token sent within headers to verify the user credentials */
 export function authenticateToken(req: any, res: Response, next: NextFunction) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];

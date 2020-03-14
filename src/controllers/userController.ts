@@ -3,7 +3,7 @@ import {UserModel} from '../models/userModel';
 import jwt from 'jsonwebtoken';
 
 class UserController {
-    /* Checks whether the movement is valid or not */
+    /* Handles the login functionality, checks if user is validated or not */
     async login(req: Request, res: Response) {
         const {username, password} = req.body;
         try {
@@ -21,6 +21,7 @@ class UserController {
         }
     }
 
+    /* Handles the registration functionality, creating new user if the username not exist already */
     async register(req: any, res: Response) {
         const {username, password, email} = req.body;
         try {
